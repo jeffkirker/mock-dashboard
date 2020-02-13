@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Chart from '../../Chart';
 import Paper from '@material-ui/core/Paper';
 import classes from './SummaryStats.css'
 import Deposits from '../../Deposits';
