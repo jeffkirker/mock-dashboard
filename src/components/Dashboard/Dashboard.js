@@ -97,7 +97,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Dashboard() {
+export default function Dashboard(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -106,6 +106,7 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
 
   return (
 
@@ -149,7 +150,12 @@ export default function Dashboard() {
       </Drawer>
 
       {/* This is the grid that displays the actual graphs */}
-      <SummaryDashboard />
+      <div className="App">
+        <main className={classes.content}>
+          <div className={classes.appBarSpacer} />
+          <SummaryDashboard repositories={props.repositories} />
+        </main>
+      </div>
     </div>
   );
 }
