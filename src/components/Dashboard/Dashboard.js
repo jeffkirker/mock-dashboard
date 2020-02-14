@@ -16,6 +16,7 @@ import { mainListItems, secondaryListItems } from '../listItems';
 import Container from '@material-ui/core/Container';
 
 import SummaryDashboard from '../SummaryDashboard/SummaryDashboard';
+import DrawerRepoNavigation from '../DrawerRepoNavigation/DrawerRepoNavigation';
 
 const drawerWidth = 240;
 
@@ -107,7 +108,7 @@ export default function Dashboard(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  console.log("Dashboard: ", props.repositories[0].doughnutData);
 
   return (
 
@@ -144,17 +145,17 @@ export default function Dashboard(props) {
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        <Divider />
-        <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
+        <List><DrawerRepoNavigation
+        repositories={props.repositories}/></List>
       </Drawer>
 
       {/* This is the grid that displays the actual graphs */}
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
-            <SummaryDashboard repositories={props.repositories} />
+            <SummaryDashboard 
+            repositories={props.repositories} />
+          
           </Container>
         </main>
     </div>

@@ -8,7 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import ChartTest from '../../Charts/ChartTest';
 import DonutTest from '../../Charts/DonutTest';
-
+import DoughnutChart from '../../Charts/DoughnutChart';
+import LineChart from '../../Charts/LineChart';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -29,18 +30,26 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const SummaryStats = () => {
+const SummaryStats = (props) => {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  console.log("SummaryStats:", props);
 
   return (
     <Container maxWidth="lg" className={classes.container}>
       <Grid container className={classes.root} spacing={6}>
         <Grid item xs={6}>
-          <ChartTest />
+          <LineChart
+            data={props.lineData}
+            title={props.name}
+            color="#3E517A" />
         </Grid>
         <Grid item xs={6}>
-          <DonutTest />
+
+          <DoughnutChart
+            data={props.doughnutData}
+            title={props.name}
+            colors={['#a8e0ff', '#8ee3f5', '#70cad1', '#3e517a', '#b08ea2', '#BBB6DF']} />
         </Grid>
       </Grid>
     </Container>

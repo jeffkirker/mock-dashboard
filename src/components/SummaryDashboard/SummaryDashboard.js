@@ -4,8 +4,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 class SummaryDashboard extends Component {
     render() {
-        return this.props.repositories.map((repo) => {
-            return <SummaryStats name={repo.name}/>
+        // console.log("Summary:", this.props.repositories[0].doughnutData);
+        return this.props.repositories.map((repo, key) => {
+            console.log("Summary:", repo.doughnutData);
+            return <SummaryStats
+                name={repo.name}
+                key={repo.key}
+                doughnutData={repo.doughnutData}
+                lineData={repo.lineData} />
         });
     }
 }
