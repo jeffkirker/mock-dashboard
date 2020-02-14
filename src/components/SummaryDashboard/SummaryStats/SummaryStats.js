@@ -30,25 +30,21 @@ const useStyles = makeStyles(theme => ({
 
 
 const SummaryStats = () => {
-    const classes = useStyles();
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const classes = useStyles();
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-    return (
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container className={classes.root} spacing={6}>
-              <Grid item xs={6}>
-                {/* <Paper className={fixedHeightPaper}> */}
-                  <ChartTest />                    
-                {/* </Paper> */}
-              </Grid>
-                <Grid item xs>
-                  {/* <Paper className={fixedHeightPaper}> */}
-                    <DonutTest />
-                  {/* </Paper> */}
-                </Grid>
-            </Grid>
-        </Container>
-    )
+  return (
+    <Container maxWidth="lg" className={classes.container}>
+      <Grid container className={classes.root} spacing={6}>
+        <Grid item xs={6}>
+          <ChartTest />
+        </Grid>
+        <Grid item xs={6}>
+          <DonutTest />
+        </Grid>
+      </Grid>
+    </Container>
+  )
 }
 
 export default SummaryStats;

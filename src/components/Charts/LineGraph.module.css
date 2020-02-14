@@ -1,12 +1,13 @@
 .graphContainer {
     width: 40vw;
     height: 40vh;
-    background: white;
-    padding: 10px 10px 10px 10px;
+    background: green;
+    /* padding: 10px 10px 10px 10px; */
     border-radius: 10px;
     /* -webkit-box-shadow: 0px 10px 0px -5px rgba(0,0,0,0.3);
     -moz-box-shadow: 0px 10px 0px -5px rgba(0,0,0,0.3);
     box-shadow: 0px 10px 0px -5px rgba(0,0,0,0.3); */
+    position: relative;
 }
 
 @media only screen and (max-width: 600px) {

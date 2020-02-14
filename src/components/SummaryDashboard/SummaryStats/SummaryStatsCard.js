@@ -61,14 +61,10 @@ export default function SummaryCard(props) {
           <Container maxWidth="lg" className={classes.container}>
             <Grid container className={classes.root} spacing={6}>
               <Grid item xs={6}>
-                {/* <Paper className={fixedHeightPaper}> */}
                 <ChartTest />
-                {/* </Paper> */}
               </Grid>
               <Grid item xs>
-                {/* <Paper className={fixedHeightPaper}> */}
                 <DonutTest />
-                {/* </Paper> */}
               </Grid>
             </Grid>
           </Container>

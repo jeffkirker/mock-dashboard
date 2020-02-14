@@ -28,13 +28,7 @@ export default class LineGraph extends Component {
         });
     }
     render() {
-        return (
-            <div className={classes.graphContainer}>
-                <canvas
-                    id="donutChart"
-                    ref={this.chartRef}
-                />
-            </div>
-        )
+            return <canvas ref={this.chartRef} />;
+
     }
 }

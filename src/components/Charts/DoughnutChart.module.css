@@ -1,8 +1,8 @@
 .graphContainer {
     width: 35vw;
     height: 40vh;
-    background: white;
-    padding: 10px 10px 10px 10px;
+    background: blue;
+    /* padding: 10px 10px 10px 10px; */
     border-radius: 10px;
 }
 
