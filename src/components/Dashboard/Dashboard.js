@@ -9,10 +9,10 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems, secondaryListItems } from '../listItems';
+import Container from '@material-ui/core/Container';
 
 import SummaryDashboard from '../SummaryDashboard/SummaryDashboard';
 
@@ -150,12 +150,13 @@ export default function Dashboard(props) {
       </Drawer>
 
       {/* This is the grid that displays the actual graphs */}
-      <div className="App">
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="lg" className={classes.container}>
           <SummaryDashboard repositories={props.repositories} />
-        </main>
-      </div>
+        </Container>
+      </main>
     </div>
+    
   );
 }

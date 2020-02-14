@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Dashboard from './components/Dashboard/Dashboard';
 import './App.css';
-import SummaryDashboard from './components/SummaryDashboard/SummaryDashboard';
 
 class App extends Component {
   //TODO: Create function that fetches repositories
@@ -10,6 +9,7 @@ class App extends Component {
     repositories: [
       { name: 'TestRepo1' },
       { name: 'TestRepo2' },
+      { name: 'TestRepo3' },
       { name: 'TestRepo3' }
     ],
     showSummary: true

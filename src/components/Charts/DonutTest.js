@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Chart from "chart.js";
 import classes from "./DoughnutChart.module.css";
 
-export default class LineGraph extends Component {
+export default class DonutGraph extends Component {
     chartRef = React.createRef();
     
     componentDidMount() {
