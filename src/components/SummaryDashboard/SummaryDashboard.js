@@ -12,6 +12,7 @@ class SummaryDashboard extends Component {
                 key={repo.key}
                 doughnutData={repo.doughnutData}
                 lineData={repo.lineData} />
+
         });
     }
 }

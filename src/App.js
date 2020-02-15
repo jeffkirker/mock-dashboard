@@ -47,7 +47,6 @@ class App extends Component {
 
 
   //TODO: Create function that fetches repositories
- 
 
   render() {
     console.log(this.state.repositories[0].doughnutData);

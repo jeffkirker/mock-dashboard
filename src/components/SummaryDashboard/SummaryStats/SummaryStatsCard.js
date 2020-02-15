@@ -19,6 +19,7 @@ import Grid from '@material-ui/core/Grid';
 
 
 const useStyles = makeStyles(theme => ({
+
   root: {
     minWidth: 345,
   },
@@ -38,6 +39,7 @@ var cardStyle = {
   // transitionDuration: '0.3s',
   // height: '30vw',
   marginBottom: '24px'
+
 }
 
 export default function SummaryCard(props) {
