@@ -14,23 +14,32 @@ import CardHeader from '@material-ui/core/CardHeader';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ChartTest from '../../Charts/ChartTest';
 import DonutTest from '../../Charts/DonutTest';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles({
+
+const useStyles = makeStyles(theme => ({
+
   root: {
     minWidth: 345,
   },
   header: {
-      textAlign: 'left',
-      paddingLeft: '40px',
-  }
-});
+    textAlign: 'left',
+    paddingLeft: '40px',
+  },
+  container: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
+}));
 
 var cardStyle = {
-    display: 'block',
-    width: '100%',
-    // transitionDuration: '0.3s',
-    // height: '30vw',
-    marginBottom: '24px'
+  display: 'block',
+  width: '100%',
+  // transitionDuration: '0.3s',
+  // height: '30vw',
+  marginBottom: '24px'
+
 }
 
 export default function SummaryCard(props) {
@@ -38,34 +47,34 @@ export default function SummaryCard(props) {
 
   return (
     <div style={{ width: '100%' }}>
-      {/* <Box display="flex" flexDirection="row" p={1} m={1} bgcolor="background.paper">
-        <Box flexGrow={2} p={1} bgcolor="grey.300">
-          <ChartTest />
-        </Box>
-        <Box flexGrow={1} p={1} bgcolor="grey.300">
-          <DonutTest/>
-        </Box>
-      </Box> */}
       <Card className={classes.root} style={cardStyle}>
-      
-      <CardHeader
-        className={classes.header}
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={props.name}
 
-      />
-      
+        <CardHeader
+          className={classes.header}
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title={props.name}
+        />
+
         <CardContent>
-            <SummaryStats />
+          <Container maxWidth="lg" className={classes.container}>
+            <Grid container className={classes.root} spacing={6}>
+              <Grid item xs={6}>
+                <ChartTest />
+              </Grid>
+              <Grid item xs>
+                <DonutTest />
+              </Grid>
+            </Grid>
+          </Container>
         </CardContent>
-    </Card>
+      </Card>
+
     </div>
-   
+
   );
 }
 
- 
