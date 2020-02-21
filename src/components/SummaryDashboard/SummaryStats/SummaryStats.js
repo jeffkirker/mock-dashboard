@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Paper from '@material-ui/core/Paper';
 import classes from './SummaryStats.css'
-import Deposits from '../../Deposits';
 import Grid from '@material-ui/core/Grid';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';

@@ -12,6 +12,7 @@ class App extends Component {
         { name: 'TestRepo3', key: 'afndsj', lineData: this.getRandomDateArray(15), doughnutData: this.getRandomArray(6)},
         { name: 'TestRepo2', key: 'kfskdg', lineData: this.getRandomDateArray(15), doughnutData: this.getRandomArray(6)},
         { name: 'TestRepo1', key: 'afdagd', lineData: this.getRandomDateArray(15), doughnutData: this.getRandomArray(6)},
+        { name: 'TestRepo4', key: 'akjhfa', lineData: this.getRandomDateArray(15), doughnutData: this.getRandomArray(6)},
       ],
       showSummary: true
     };

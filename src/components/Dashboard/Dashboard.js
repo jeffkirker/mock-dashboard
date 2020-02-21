@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, fade } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -12,11 +12,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mainListItems, secondaryListItems } from '../listItems';
 import Container from '@material-ui/core/Container';
+import SearchIcon from '@material-ui/icons/Search';
 
 import SummaryDashboard from '../SummaryDashboard/SummaryDashboard';
 import DrawerRepoNavigation from '../DrawerRepoNavigation/DrawerRepoNavigation';
+import { InputBase } from '@material-ui/core';
 
 const drawerWidth = 240;
 
@@ -57,6 +58,43 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+  },
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+  },
+  searchIcon: {
+    width: theme.spacing(7),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200,
+      },
+    },
   },
   drawerPaper: {
     position: 'relative',
@@ -102,6 +140,7 @@ const useStyles = makeStyles(theme => ({
 export default function Dashboard(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [search, updateSearch] = React.useState('');
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -109,6 +148,12 @@ export default function Dashboard(props) {
     setOpen(false);
   };
   console.log("Dashboard: ", props.repositories[0].doughnutData);
+
+  let filteredRepos = props.repositories.filter(
+    (repo) => {
+      return repo.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    }
+  );
 
   return (
 
@@ -129,6 +174,20 @@ export default function Dashboard(props) {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Teamwork Dashboard
           </Typography>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search..."
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+              onChange={(input) => updateSearch(input.target.value)}
+              />
+          </div>
         </Toolbar>
       </AppBar>
 
@@ -146,7 +205,7 @@ export default function Dashboard(props) {
           </IconButton>
         </div>
         <List><DrawerRepoNavigation
-        repositories={props.repositories}/></List>
+        repositories={filteredRepos}/></List>
       </Drawer>
 
       {/* This is the grid that displays the actual graphs */}
@@ -154,7 +213,7 @@ export default function Dashboard(props) {
         <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
             <SummaryDashboard 
-            repositories={props.repositories} />
+            repositories={filteredRepos} />
           
           </Container>
         </main>
